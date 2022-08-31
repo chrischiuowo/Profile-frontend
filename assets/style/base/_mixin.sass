@@ -1,0 +1,31 @@
+@use "sass:math"
+
+//RWD
+@mixin rwdmax($max)
+  @media only screen and (max-width: $max + px)
+    @content
+
+@mixin rwdmin($min)
+  @media only screen and (min-width: $min + px)
+    @content
+
+@mixin portrait
+  @media screen and (orientation: portrait)
+    @content
+
+@mixin landscape
+  @media screen and (orientation: landscape)
+    @content
+
+@function px($px)
+  @return math.div($px, 16) * 1rem
+
+=ellipsis($line: 2, $lh: 32px, $height: $line * $lh)
+  display: block
+  overflow: hidden
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $line
+  line-height: $lh
+  max-height: $line * $lh
+  height: $height
