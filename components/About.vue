@@ -1,5 +1,5 @@
 <template>
-  <aside class="side-bar" />
+  <section class="about" />
 </template>
 
 <script setup lang="ts"></script>

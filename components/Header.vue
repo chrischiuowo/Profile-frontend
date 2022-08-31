@@ -1,5 +1,5 @@
 <template>
-  <aside class="side-bar" />
+  <header class="header" />
 </template>
 
 <script setup lang="ts"></script>

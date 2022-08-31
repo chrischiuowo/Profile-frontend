@@ -1,11 +1,13 @@
 <template>
-  <div>
-    {{ aa }}
-  </div>
+  <main class="container">
+    <Banner />
+    <About />
+    <Project />
+    <Contact />
+  </main>
 </template>
 
 <script setup lang="ts">
-const aa = ref('645')
 </script>
 
 <style lang="scss" scoped></style>

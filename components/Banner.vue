@@ -1,5 +1,5 @@
 <template>
-  <div />
+  <section class="banner" />
 </template>
 
 <script setup lang="ts"></script>
