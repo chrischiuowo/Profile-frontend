@@ -18,6 +18,8 @@
     "sass-loader": "^13.0.2"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "gsap": "^3.11.0",
     "sass": "^1.54.7"
   }
 }
