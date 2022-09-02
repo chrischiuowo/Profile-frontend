@@ -1,12 +1,12 @@
 <template>
   <section
-    id="about"
     class="about"
     data-aos
-    data-aos-offset="100"
   >
     <div class="container">
-      <div class="left">
+      <div
+        class="left"
+      >
         About /
       </div>
       <div class="right">
@@ -31,32 +31,20 @@
           </div>
           <div>
             <p class="content">
-              持續學習新的技術，<br>
+              持續學習新的技術，
               持續學習新的知識，<br>
-              保持對程式的熱誠，<br>
+              保持對程式的熱誠，
               等待努力開花結果，<br>
               一分耕耘一分收穫。
             </p>
           </div>
         </div>
         <div class="skill">
-          <div
+          <AboutCircle
             v-for="item in data"
             :key="item._id"
-            class="circle-wrap"
-          >
-            <div
-              class="circle"
-              :data-value="item.score"
-            >
-              <span>
-                0%
-              </span>
-            </div>
-            <div class="circle-t">
-              {{ item.title }}
-            </div>
-          </div>
+            :skill="item"
+          />
         </div>
       </div>
     </div>
@@ -64,7 +52,13 @@
 </template>
 
 <script setup lang="ts">
-const data = ref(myData.skill)
+type Idata = {
+  _id: number,
+  title: string,
+  score: number
+}
+
+const data = ref<Array<Idata>>(myData.skill)
 </script>
 
 <style lang="sass" scoped>
@@ -76,22 +70,19 @@ const data = ref(myData.skill)
         overflow: hidden
       p
         opacity: 0
-        transform: translate(0, 50px)
     .skill
       opacity: 0
     &.aos-animate
       .info
         p
           opacity: 1
-          transform: translate(0, 0)
-          transition-property: opacity, transform
-          transition-duration: .8s
-          transition-timing-function: var(--trans-timing)
-        @for $i from 1 through 10
+          transition-property: opacity
+          transition-duration: 1.7s
+        @for $i from 0 through 10
           div:nth-child(#{$i})
             p
-              transition-delay: ($i * 0.2s)
+              transition-delay: ($i * 0.3s)
       .skill
         opacity: 1
-        transition: opacity .8s .8s
+        transition: opacity 1.5s 1.2s
 </style>

@@ -5,6 +5,64 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
+const mainCover = () => {
+  const header: HTMLElement = document.querySelector('#header')
+  const body: HTMLElement = document.querySelector('body')
+  const isAbout = ():void => {
+    body.classList.remove('project-mode', 'contact-mode')
+    body.classList.add('about-mode')
+  }
+  const isProject = ():void => {
+    body.classList.remove('contact-mode', 'about-mode')
+    body.classList.add('project-mode')
+  }
+  const isContact = ():void => {
+    body.classList.remove('project-mode', 'about-mode')
+    body.classList.add('contact-mode')
+  }
+  gsap.to('#cover', {
+    scrollTrigger: {
+      trigger: 'section.banner',
+      start: '30%',
+      end: 'center bottom',
+      onUpdate: self => {
+        if (self.progress === 1) {
+          header.classList.add('active')
+          body.classList.add('cover-show', 'about-mode')
+        } else {
+          header.classList.remove('active')
+          body.classList.remove('cover-show', 'about-mode', 'project-mode', 'contact-mode')
+        }
+      }
+    }
+  })
+  gsap.to('#cover', {
+    scrollTrigger: {
+      trigger: 'section.about',
+      start: 'start',
+      onUpdate: self => {
+        if (self.progress > 0.3) {
+          isProject()
+        } else {
+          isAbout()
+        }
+      }
+    }
+  })
+  gsap.to('#cover', {
+    scrollTrigger: {
+      trigger: 'section.project',
+      start: 'start',
+      onUpdate: self => {
+        if (self.progress > 0.8) {
+          isContact()
+        } else {
+          isProject()
+        }
+      }
+    }
+  })
+}
 const banner = () => {
   // banner
   gsap.to('section.banner p.slogan-1', {
@@ -26,7 +84,7 @@ const banner = () => {
     }
   })
   gsap.to('section.banner .cover-content', {
-    scale: 2,
+    scale: 2.5,
     scrollTrigger: {
       trigger: 'section.banner',
       start: 'top top',
@@ -34,55 +92,64 @@ const banner = () => {
     }
   })
   gsap.to('section.banner .mask', {
-    opacity: 0.9,
+    opacity: 0.8,
     scrollTrigger: {
       trigger: 'section.banner',
       start: 'top top',
       scrub: true
     }
   })
-  gsap.to('#main-cover', {
-    opacity: 1,
-    scrollTrigger: {
-      trigger: 'section.banner',
-      start: 'center',
-      scrub: true,
-      onUpdate: self => {
-        if (self.progress === 1) { document.querySelector('#header').classList.add('active') } else { document.querySelector('#header').classList.remove('active') }
-      }
-    }
-  })
-}
-const about = () => {
-  const circles: Array<HTMLElement> = Array.from(document.querySelectorAll('.about .circle'))
-  circles.forEach((element) => {
-    const counter: HTMLElement = element.querySelector('span')
-    const count: { val: number } = { val: 0 }
-
-    const timeLine = gsap.timeline({
-      defaults: {
-        duration: 2,
-        delay: 1
-      },
-      scrollTrigger: {
-        trigger: circles[0],
-        onLeaveBack: self => self.disable()
-      }
-    })
-
-    timeLine.to(count, {
-      val: element.dataset.value,
-      roundProps: 'val',
-      onUpdate: function () {
-        const newVal = count.val + '%'
-        element.style.setProperty('--value', newVal)
-        counter.textContent = newVal
-      }
-    }, 0)
-  })
 }
 
 export const usePageGsap = () => {
+  mainCover()
   banner()
-  about()
+}
+
+export const useAboutCircleGsap = (dom: HTMLElement) => {
+  const target: HTMLElement = dom
+  const counter: HTMLElement = target.querySelector('span')
+  const count: { val: number } = { val: 0 }
+
+  const timeLine = gsap.timeline({
+    defaults: {
+      duration: 2,
+      delay: 1
+    },
+    scrollTrigger: {
+      trigger: 'section.about',
+      onLeaveBack: self => self.disable()
+    }
+  })
+
+  timeLine.to(count, {
+    val: target.dataset.value,
+    roundProps: 'val',
+    onUpdate: function () {
+      const newVal = count.val + '%'
+      target.style.setProperty('--value', newVal)
+      counter.textContent = newVal
+    }
+  }, 0)
+}
+
+export const useProjectCardGsap = (dom: HTMLElement) => {
+  const target: HTMLElement = dom
+  const imageOuter: HTMLElement = target.querySelector('.image-outer')
+  const image: HTMLElement = target.querySelector('.image')
+
+  gsap.to(imageOuter, {
+    scrollTrigger: {
+      trigger: 'section.project',
+      start: 'top bottom',
+      end: 'bottom',
+      scrub: true,
+      onUpdate: self => {
+        const outerW = imageOuter.offsetHeight
+        const imageW = image.offsetHeight
+        const diff = imageW - outerW
+        image.style.setProperty('transform', `translate3D(0, ${diff * self.progress * 1.5}px, 0)`)
+      }
+    }
+  })
 }

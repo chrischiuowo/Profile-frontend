@@ -20,11 +20,26 @@ body
       border-radius: 10px
       background-color: rgba(108, 110, 113, 1)
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3)
+  &.cover-show
+    #cover
+      opacity: 1
+      transition: opacity 1.5s
+  &.about-mode
+    #cover .color-cover
+      background-color: var(--about-bg)
+  &.project-mode
+    #cover .color-cover
+      background-color: var(--project-bg)
+    #header
+      color: #fff
+  &.contact-mode
+    #cover .color-cover
+      background-color: var(--contact-bg)
 
 main
   width: 100%
 
-#main-cover
+#cover
   width: 100%
   height: 100%
   opacity: 0
@@ -35,6 +50,10 @@ main
   pointer-events: none
   user-select: none
   overflow: hidden
+  transition: opacity .6s
+  --about-bg: #8d6c00
+  --project-bg: #474747
+  --contact-bg: #6e0134
   .color-cover, .noice-cover
     height: 100%
     position: absolute
@@ -47,41 +66,25 @@ main
     top: 0
   .color-cover
     z-index: 0
+    transition: background-color 1s
     &::before
       content: ''
       width: 100%
       height: 100%
-      background: var(--light-bg)
       position: absolute
       left: 0
       top: 0
   .noice-cover
     z-index: 1
-    @keyframes color
-      0%
-        background: #b4a200
-      50%
-        background: #7e7200
-      100%
-        background: #b4a200
     @keyframes move
       0%
-        transform: translate(-5px, 0)
+        transform: translate(-8px, 0)
       25%
-        transform: translate(5px, 0)
+        transform: translate(8px, 0)
       75%
-        transform: translate(-5px, 0)
+        transform: translate(-8px, 0)
       100%
-        transform: translate(5px, 0)
-    &::after
-      content: ''
-      width: 100%
-      height: 100%
-      position: absolute
-      left: 0
-      top: 0
-      opacity: 0.5
-      animation: color 10s infinite alternate-reverse linear
+        transform: translate(8px, 0)
     &::before
       content: ''
       width: 105%
@@ -92,17 +95,17 @@ main
       background-image: url(@/assets/image/noise.svg)
       background-repeat: repeat
       background-size: contain
-      opacity: 0.5
-      animation: move 4s steps(10) infinite
+      opacity: 0.7
+      animation: move 8s steps(8) infinite alternate-reverse
 
 section
   &.banner
-    width: 90%
+    width: calc(100% - 150px)
     height: 100vh
     margin-right: auto
     padding: 0 5vw
   &:not(.banner)
-    width: 90%
+    width: calc(100% - 150px)
     height: auto
     margin-right: auto
     padding: 8vw 5vw
@@ -114,28 +117,56 @@ section
     position: relative
     z-index: 5
   .left
-    font-size: px(18)
+    font-size: px(22)
     font-weight: 700
     flex-shrink: 0
+    opacity: 0
+    clip-path: inset(0 100% 0 0)
+  .right
+    padding-left: 40px
+  &.aos-animate
+    .left
+      opacity: 1
+      clip-path: inset(0 0 0 0)
+      transition: opacity 1s .4s, clip-path .7s .4s
+  +rwdmax(1200)
+    &.banner
+      width: calc(100% - 100px)
+      padding: 0 60px 0 0
+    &:not(.banner)
+      width: calc(100% - 100px)
+      padding: 15vh 60px 15vh 30px
+  +rwdmax(767)
+    &.banner
+      width: calc(100% - 100px)
+      padding: 0 20px 0 0
+    &:not(.banner)
+      width: calc(100% - 100px)
+      padding: 15vh 20px 15vh 30px
+    .container
+      flex-direction: column
+      align-items: center
+    .right
+      padding-left: 0
+      margin-top: 80px
 
 #header
-  width: auto
+  width: 150px
   display: inline-flex
   flex-direction: column
   align-items: center
   justify-content: space-between
-  padding: 60px 4vw 30px
+  padding: 60px 0 30px
   position: fixed
   right: 0
   top: 0
   bottom: 0
   z-index: 10
   .logo
-    width: 40px
     cursor: pointer
     user-select: none
-    img
-      width: 100%
+    a
+      font-size: px(40)
   ul
     text-align: center
     margin: 30px 0
@@ -146,6 +177,8 @@ section
     margin: 8px 0
     cursor: pointer
     user-select: none
+    a
+      display: block
   .tool
     width: 20px
     display: flex
@@ -174,8 +207,7 @@ section
       opacity: 0
       pointer-events: none
       transition: opacity .6s
-    img
-      width: 100%
+      font-size: px(40)
   &.active
     .tool
       .fake-line
@@ -184,3 +216,7 @@ section
       a
         opacity: 1
         pointer-events: all
+  +rwdmax(1200)
+    width: 100px
+    li
+      font-size: px(14)

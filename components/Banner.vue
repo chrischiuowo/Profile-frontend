@@ -1,6 +1,5 @@
 <template>
   <section
-    id="banner"
     class="banner"
     data-aos
   >
