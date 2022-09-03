@@ -32,6 +32,10 @@ body
       background-color: var(--project-bg)
     #header
       color: #fff
+      .logo
+        i
+          &:nth-child(2)
+            background-color: #fff
   &.contact-mode
     #cover .color-cover
       background-color: var(--contact-bg)
@@ -50,10 +54,10 @@ main
   pointer-events: none
   user-select: none
   overflow: hidden
-  transition: opacity .6s
-  --about-bg: #8d6c00
-  --project-bg: #474747
-  --contact-bg: #6e0134
+  transition: opacity 2s
+  --about-bg: #b1c6c9
+  --project-bg: #3f3d4d
+  --contact-bg: #e2d1b5
   .color-cover, .noice-cover
     height: 100%
     position: absolute
@@ -66,7 +70,7 @@ main
     top: 0
   .color-cover
     z-index: 0
-    transition: background-color 1s
+    transition: background-color 2s
     &::before
       content: ''
       width: 100%
@@ -78,42 +82,36 @@ main
     z-index: 1
     @keyframes move
       0%
-        transform: translate(-8px, 0)
-      25%
-        transform: translate(8px, 0)
-      75%
-        transform: translate(-8px, 0)
+        transform: translate(-20px, 0)
       100%
-        transform: translate(8px, 0)
+        transform: translate(20px, 0)
     &::before
       content: ''
       width: 105%
       height: 105%
       position: absolute
-      left: -10px
-      top: -10px
+      left: -20px
+      top: -20px
       background-image: url(@/assets/image/noise.svg)
       background-repeat: repeat
       background-size: contain
-      opacity: 0.7
-      animation: move 8s steps(8) infinite alternate-reverse
+      opacity: 0.4
+      animation: move 20s steps(20) infinite alternate-reverse
+
+.page-all
+  padding-bottom: 20vh
 
 section
+  width: calc(100% - 150px)
+  margin-right: auto
+  min-height: 100vh
   &.banner
-    width: calc(100% - 150px)
-    height: 100vh
-    margin-right: auto
     padding: 0 5vw
   &:not(.banner)
-    width: calc(100% - 150px)
-    height: auto
-    margin-right: auto
-    padding: 8vw 5vw
+    padding: 30vh 5vw
   .container
     width: 100%
     display: flex
-    justify-content: space-between
-    align-items: flex-start
     position: relative
     z-index: 5
   .left
@@ -123,26 +121,38 @@ section
     opacity: 0
     clip-path: inset(0 100% 0 0)
   .right
-    padding-left: 40px
-  &.aos-animate
+    opacity: 0
+    padding-left: 15vw
+  &.active
     .left
       opacity: 1
       clip-path: inset(0 0 0 0)
       transition: opacity 1s .4s, clip-path .7s .4s
-  +rwdmax(1200)
+    .right
+      opacity: 1
+      transition: opacity 1s .2s
+  +rwdmax(1500)
     &.banner
-      width: calc(100% - 100px)
       padding: 0 60px 0 0
     &:not(.banner)
-      width: calc(100% - 100px)
       padding: 15vh 60px 15vh 30px
-  +rwdmax(767)
+    .right
+      padding-left: 100px
+  +rwdmax(1200)
+    width: calc(100% - 100px)
+  +rwdmax(991)
+    width: calc(100% - 50px)
+    margin-right: 0
+    margin-left: auto
     &.banner
-      width: calc(100% - 100px)
-      padding: 0 20px 0 0
+      padding: 0 0 0 40px
     &:not(.banner)
-      width: calc(100% - 100px)
-      padding: 15vh 20px 15vh 30px
+      padding: 15vh 30px 15vh 60px
+  +rwdmax(991)
+    &.banner
+      padding: 0 0 0 10px
+    &:not(.banner)
+      padding: 15vh 30px 15vh 20px
     .container
       flex-direction: column
       align-items: center
@@ -166,12 +176,22 @@ section
     cursor: pointer
     user-select: none
     a
-      font-size: px(40)
+      display: inline-flex
+      align-items: flex-end
+    i
+      display: inline-block
+      &:nth-child(1)
+        font-size: px(35)
+      &:nth-child(2)
+        width: 8px
+        height: 8px
+        background-color: #000
+        border-radius: 50%
+        margin-left: 5px
   ul
     text-align: center
     margin: 30px 0
   li
-    font-size: px(18)
     font-weight: 600
     padding: 10px
     margin: 8px 0
@@ -179,6 +199,11 @@ section
     user-select: none
     a
       display: block
+    span
+      font-size: px(18)
+    i
+      font-size: px(22)
+      display: none
   .tool
     width: 20px
     display: flex
@@ -207,7 +232,7 @@ section
       opacity: 0
       pointer-events: none
       transition: opacity .6s
-      font-size: px(40)
+      font-size: px(25)
   &.active
     .tool
       .fake-line
@@ -219,4 +244,54 @@ section
   +rwdmax(1200)
     width: 100px
     li
-      font-size: px(14)
+      span
+        font-size: px(14)
+  +rwdmax(991)
+    width: 50px
+    padding: 30px 0
+    right: auto
+    left: 0
+    .logo
+      a
+        transform: scale(0.8)
+    li
+      span
+        display: none
+      i
+        display: block
+  // aos
+  .logo
+    i
+      &:nth-child(1)
+        opacity: 0
+        transform: scale(.7)
+      &:nth-child(2)
+        opacity: 0
+  ul
+    li
+      overflow: hidden
+    a
+      opacity: 0
+      transform: translateY(150%) skewY(5deg)
+  .tool .fake-line
+    opacity: 0
+    clip-path: inset(100% 0 0 0)
+  &.aos-animate
+    .logo
+      i
+        &:nth-child(1)
+          opacity: 1
+          transform: scale(1)
+          transition: transform 1.5s, opacity 1.2s
+        &:nth-child(2)
+          opacity: 1
+          transition: 1.2s
+    ul
+      a
+        opacity: 1
+        transform: translateY(0)
+        transition: transform 2s
+    .tool .fake-line
+      opacity: 1
+      clip-path: inset(0 0 0 0)
+      transition: clip-path 1.5s, opacity 1.2s

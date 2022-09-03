@@ -1,7 +1,6 @@
 <template>
   <section
     class="about"
-    data-aos
   >
     <div class="container">
       <div
@@ -63,26 +62,4 @@ const data = ref<Array<Idata>>(myData.skill)
 
 <style lang="sass" scoped>
   @import @/assets/style/page/about
-  // aos
-  .about
-    .info
-      div
-        overflow: hidden
-      p
-        opacity: 0
-    .skill
-      opacity: 0
-    &.aos-animate
-      .info
-        p
-          opacity: 1
-          transition-property: opacity
-          transition-duration: 1.7s
-        @for $i from 0 through 10
-          div:nth-child(#{$i})
-            p
-              transition-delay: ($i * 0.3s)
-      .skill
-        opacity: 1
-        transition: opacity 1.5s 1.2s
 </style>

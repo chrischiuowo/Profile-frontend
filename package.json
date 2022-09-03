@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "device-detector-js": "^3.0.3",
     "gsap": "^3.11.0",
     "sass": "^1.54.7"
   }

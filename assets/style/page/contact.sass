@@ -1,0 +1,36 @@
+@import ../base/variables
+@import ../base/mixin
+
+.contact
+  .right
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+  .name
+    font-size: px(20)
+    font-weight: 600
+    line-height: 1.6
+    letter-spacing: 1.5px
+  .mail
+    font-size: px(90)
+    margin-top: 40px
+  .other
+    display: flex
+    align-items: center
+    margin-top: 100px
+    a
+      display: block
+      font-size: px(18)
+      margin-right: 40px
+  +rwdmax(1500)
+    .mail
+      font-size: 5vw
+  +rwdmax(991)
+    .right
+      text-align: center
+    .other
+      flex-direction: column
+      justify-content: center
+      a
+        margin-right: 0
+        margin-bottom: 20px

@@ -6,11 +6,11 @@
     display: flex
     +rwdmax(1200)
       flex-direction: column
+    +rwdmax(991)
       align-items: center
   .info
     width: 100%
     max-width: 400px
-    text-align: center
     margin-right: 80px
     p
       line-height: 1.2
@@ -26,7 +26,6 @@
         width: 25px
         height: 4px
         background-color: #000
-        margin: 0 auto
       &.slogan
         font-size: px(24)
         font-weight: 600
@@ -40,12 +39,17 @@
       margin-bottom: 40px
       br
         display: none
+    +rwdmax(991)
+      text-align: center
+      .line
+        margin: 0 auto
   .skill
     width: 100%
     max-width: 695px
     display: flex
     align-items: center
-    justify-content: center
     flex-wrap: wrap
+    +rwdmax(991)
+      justify-content: center
     +rwdmax(350)
       display: none

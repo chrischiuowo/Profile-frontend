@@ -1,7 +1,6 @@
 <template>
   <section
     class="project"
-    data-aos
   >
     <div class="container">
       <div
@@ -36,13 +35,4 @@ const data = ref<Array<Idata>>(myData.project)
 
 <style lang="sass" scoped>
   @import @/assets/style/page/project
-  .project
-    .right
-      opacity: 0
-      transform: translateY(20%)
-    &.aos-animate
-      .right
-        opacity: 1
-        transform: translateY(0)
-        transition: opacity 1s, transform 1s
 </style>

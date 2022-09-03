@@ -8,17 +8,26 @@ if (process.client) {
 const mainCover = () => {
   const header: HTMLElement = document.querySelector('#header')
   const body: HTMLElement = document.querySelector('body')
+  const sections: Array<HTMLElement> = Array.from(document.querySelectorAll('main > section'))
+  const checkClass = (now: string) => {
+    sections.forEach(element => {
+      if (element.classList.contains(now)) element.classList.add('active')
+    })
+  }
   const isAbout = ():void => {
     body.classList.remove('project-mode', 'contact-mode')
     body.classList.add('about-mode')
+    checkClass('about')
   }
   const isProject = ():void => {
     body.classList.remove('contact-mode', 'about-mode')
     body.classList.add('project-mode')
+    checkClass('project')
   }
   const isContact = ():void => {
     body.classList.remove('project-mode', 'about-mode')
     body.classList.add('contact-mode')
+    checkClass('contact')
   }
   gsap.to('#cover', {
     scrollTrigger: {
@@ -28,7 +37,8 @@ const mainCover = () => {
       onUpdate: self => {
         if (self.progress === 1) {
           header.classList.add('active')
-          body.classList.add('cover-show', 'about-mode')
+          body.classList.add('cover-show')
+          isAbout()
         } else {
           header.classList.remove('active')
           body.classList.remove('cover-show', 'about-mode', 'project-mode', 'contact-mode')
@@ -41,7 +51,7 @@ const mainCover = () => {
       trigger: 'section.about',
       start: 'start',
       onUpdate: self => {
-        if (self.progress > 0.3) {
+        if (self.progress >= 0.6) {
           isProject()
         } else {
           isAbout()
@@ -54,7 +64,7 @@ const mainCover = () => {
       trigger: 'section.project',
       start: 'start',
       onUpdate: self => {
-        if (self.progress > 0.8) {
+        if (self.progress >= 0.6) {
           isContact()
         } else {
           isProject()

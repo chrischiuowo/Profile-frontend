@@ -48,28 +48,4 @@ onMounted(() => {
 
 <style lang="sass" scoped>
   @import @/assets/style/page/banner
-  // aos
-  .banner
-    .banner-cover
-      .cover-wrap
-        transform: scale(1.4)
-    .slogan-1 , .slogan-2
-      overflow: hidden
-    .slogan-1 span, .slogan-2 span
-      opacity: 0
-      transform: translateY(150%) skewY(5deg)
-    &.aos-animate
-      .banner-cover
-        .cover-wrap
-          transform: scale(1)
-          transition: transform 2s
-      .slogan-1 span, .slogan-2 span
-        opacity: 1
-        transform: translateY(0)
-        transition-timing-function: var(--trans-timing)
-        transition-duration: 1.5s
-      .slogan-1 span
-        transition-delay: .5s
-      .slogan-2 span
-        transition-delay: .8s
 </style>

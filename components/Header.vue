@@ -5,7 +5,8 @@
   >
     <div class="logo">
       <a href="/">
-        <i class="fa-solid fa-face-smile" />
+        <i class="fa-solid fa-c" />
+        <i />
       </a>
     </div>
     <ul>
@@ -14,7 +15,8 @@
           href="javascript:;"
           @click="scrollTo('section.about')"
         >
-          About
+          <span>About</span>
+          <i class="fa-solid fa-user" />
         </a>
       </li>
       <li>
@@ -22,7 +24,8 @@
           href="javascript:;"
           @click="scrollTo('section.project')"
         >
-          Project
+          <span>Project</span>
+          <i class="fa-solid fa-book" />
         </a>
       </li>
       <li>
@@ -30,7 +33,8 @@
           href="javascript:;"
           @click="scrollTo('section.contact')"
         >
-          Contact
+          <span>Contact</span>
+          <i class="fa-solid fa-square-phone" />
         </a>
       </li>
     </ul>
@@ -48,33 +52,3 @@
     </div>
   </header>
 </template>
-
-<style lang="sass" scoped>
-  #header
-    .logo
-      transform: scale(.7)
-      opacity: 0
-    ul
-      li
-        overflow: hidden
-      a
-        opacity: 0
-        transform: translateY(150%) skewY(5deg)
-    .tool .fake-line
-      opacity: 0
-      clip-path: inset(100% 0 0 0)
-    &.aos-animate
-      .logo
-        transform: scale(1)
-        opacity: 1
-        transition: transform 1s, opacity .7s
-      ul
-        a
-          opacity: 1
-          transform: translateY(0)
-          transition: transform 1.5s
-      .tool .fake-line
-        opacity: 1
-        clip-path: inset(0 0 0 0)
-        transition: clip-path 1s, opacity .7s
-</style>
