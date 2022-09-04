@@ -25,11 +25,15 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'I\'m Chris. 目前使用 Vue / Nuxt / Node / Express 做開發。'
+      content: 'I\'m Chris. 目前使用 Vue / Nuxt / Node / Express 做開發。 Chris\'s Website。'
     },
     {
       name: 'keywords',
-      content: 'web design / frontend / node.js / express.js / nuxt.js / vue 3'
+      content: 'web design / frontend / backend / node.js / express.js / nuxt.js / vue.js'
+    },
+    {
+      name: 'canonical',
+      content: 'https://chris-3030.herokuapp.com/'
     }
   ],
   link: [{ rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' }]
