@@ -32,6 +32,26 @@
         </div>
       </div>
     </div>
+    <div
+      class="flower f5"
+      data-aos
+      data-aos-once="false"
+    >
+      <img
+        src="@/assets/image/f5.png"
+        alt="flower"
+      >
+    </div>
+    <div
+      class="flower f6"
+      data-aos
+      data-aos-once="false"
+    >
+      <img
+        src="@/assets/image/f6.png"
+        alt="flower"
+      >
+    </div>
   </section>
 </template>
 

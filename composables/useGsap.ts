@@ -73,8 +73,8 @@ const mainCover = () => {
     }
   })
 }
+
 const banner = () => {
-  // banner
   gsap.to('section.banner p.slogan-1', {
     opacity: 0,
     y: -60,

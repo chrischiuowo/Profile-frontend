@@ -43,6 +43,72 @@ body
 main
   width: 100%
 
+body
+  .flower
+    width: 4vw
+    max-width: 100px
+    min-width: 50px
+    opacity: 0
+    transform: translateY(60%)
+    position: absolute
+    z-index: 1
+    transition-duration: 1.5s !important
+    transition-delay: .2s !important
+    +rwdmax(767)
+      width: 2vw
+    img
+      width: 100%
+    &.aos-animate
+      opacity: 1
+      transform: translate(0)
+    &.f1
+      right: 2vw
+      top: 20vh
+      img
+        transform: rotate(10deg)
+      +rwdmax(1500)
+        top: 5vh
+    &.f2
+      left: 12vw
+      bottom: 0
+      img
+        transform: rotate(-10deg)
+      +rwdmax(991)
+        display: none
+    &.f3
+      width: 3vw
+      left: 15vw
+      top: 80vh
+      +rwdmax(1500)
+        left: 8vw
+        top: 60vh
+      +rwdmax(991)
+        left: 5vw
+        top: 15vh
+    &.f4
+      left: 10vw
+      top: 60vh
+      +rwdmax(1500)
+        left: 4vw
+        top: 40vh
+      +rwdmax(991)
+        left: auto
+        right: 4vw
+        top: -5vh
+    &.f5
+      left: 15vw
+      top: 5vh
+      +rwdmax(1500)
+        top: -5vh
+        left: 10vw
+    &.f6
+      width: 5vw
+      right: 12vw
+      bottom: 20vh
+      +rwdmax(991)
+        bottom: 5vh
+        right: 5vw
+
 #cover
   width: 100%
   height: 100%
@@ -105,6 +171,7 @@ section
   width: calc(100% - 150px)
   margin-right: auto
   min-height: 100vh
+  position: relative
   &.banner
     padding: 0 5vw
   &:not(.banner)
@@ -150,7 +217,7 @@ section
       padding: 15vh 30px 15vh 60px
   +rwdmax(991)
     &.banner
-      padding: 0 0 0 10px
+      padding: 0
     &:not(.banner)
       padding: 15vh 30px 15vh 20px
     .container

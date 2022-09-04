@@ -18,6 +18,26 @@
         </ul>
       </div>
     </div>
+    <div
+      class="flower f3"
+      data-aos
+      data-aos-once="false"
+    >
+      <img
+        src="@/assets/image/f3.png"
+        alt="flower"
+      >
+    </div>
+    <div
+      class="flower f4"
+      data-aos
+      data-aos-once="false"
+    >
+      <img
+        src="@/assets/image/f4.png"
+        alt="flower"
+      >
+    </div>
   </section>
 </template>
 
