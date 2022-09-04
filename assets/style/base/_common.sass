@@ -148,9 +148,9 @@ body
     z-index: 1
     @keyframes move
       0%
-        transform: translate(-20px, 0)
-      100%
         transform: translate(20px, 0)
+      100%
+        transform: translate(-20px, 0)
     &::before
       content: ''
       width: 105%
@@ -158,11 +158,10 @@ body
       position: absolute
       left: -20px
       top: -20px
-      background-image: url(@/assets/image/noise.svg)
-      background-repeat: repeat
-      background-size: contain
-      opacity: 0.4
-      animation: move 20s steps(20) infinite alternate-reverse
+      background-color: #ffffff
+      opacity: 0.1
+      background-size: 26px 26px
+      background-image: repeating-linear-gradient(to right, #0e0e05, #0e0e05 1.3px, #ffffff 1.3px, #ffffff)
 
 .page-all
   padding-bottom: 20vh

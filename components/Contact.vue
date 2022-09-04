@@ -14,19 +14,15 @@
           邱葦宸
         </div>
         <div class="mail">
-          XXXXXX@gmail.com
+          wwchris3030@gmail.com
         </div>
         <div class="other">
           <a
-            href=""
+            href="https://github.com/chrisstar30"
             target="_blank"
           >Github</a>
           <a
-            href=""
-            target="_blank"
-          >Linkedin</a>
-          <a
-            href=""
+            href="https://www.cakeresume.com/me/chris-69628e"
             target="_blank"
           >CakeResume</a>
         </div>
