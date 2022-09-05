@@ -43,79 +43,138 @@ body
 main
   width: 100%
 
-body
-  .flower
-    width: 4vw
-    max-width: 100px
-    min-width: 50px
-    opacity: 0
-    transform: translateY(60%)
-    position: absolute
-    z-index: 1
-    transition-duration: 1.5s !important
-    transition-delay: .2s !important
-    +rwdmax(767)
-      width: 2vw
+.flower
+  width: 4vw
+  max-width: 100px
+  min-width: 50px
+  opacity: 0
+  transform: translateY(60%)
+  position: absolute
+  z-index: 1
+  transition-duration: 1.5s !important
+  transition-delay: .2s !important
+  +rwdmax(767)
+    width: 2vw
+  @keyframes spin
+    0%
+      transform: rotate(0deg)
+    100%
+      transform: rotate(360deg)
+  img
+    width: 100%
+  &.aos-animate
+    opacity: 1
+    transform: translate(0)
+  &.f1
+    right: 2vw
+    top: 20vh
+    animation: spin 12s infinite
     img
-      width: 100%
-    &.aos-animate
-      opacity: 1
-      transform: translate(0)
-    &.f1
-      right: 2vw
-      top: 20vh
-      img
-        transform: rotate(10deg)
-      +rwdmax(1500)
-        top: 5vh
-    &.f2
-      left: 12vw
-      bottom: 0
-      img
-        transform: rotate(-10deg)
-      +rwdmax(991)
-        display: none
-    &.f3
-      width: 3vw
-      left: 15vw
-      top: 80vh
-      +rwdmax(1500)
-        left: 8vw
-        top: 60vh
-      +rwdmax(991)
-        left: 5vw
-        top: 15vh
-    &.f4
-      left: 10vw
-      top: 60vh
-      +rwdmax(1500)
-        left: 4vw
-        top: 40vh
-      +rwdmax(991)
-        left: auto
-        right: 4vw
-        top: -5vh
-    &.f5
-      left: 15vw
+      transform: rotate(10deg)
+    +rwdmax(1500)
       top: 5vh
-      +rwdmax(1500)
-        top: -5vh
-        left: 10vw
-    &.f6
-      width: 5vw
-      right: 12vw
-      bottom: 20vh
-      +rwdmax(991)
-        bottom: 5vh
-        right: 5vw
+  &.f2
+    left: 12vw
+    bottom: 0
+    img
+      transform: rotate(-10deg)
+    +rwdmax(991)
+      display: none
+  &.f3
+    width: 3vw
+    left: 15vw
+    top: 80vh
+    animation: spin 12s infinite
+    +rwdmax(1500)
+      left: 8vw
+      top: 60vh
+    +rwdmax(991)
+      left: 5vw
+      top: 15vh
+  &.f4
+    left: 10vw
+    top: 60vh
+    animation: spin 10s infinite
+    +rwdmax(1500)
+      left: 4vw
+      top: 40vh
+    +rwdmax(991)
+      left: auto
+      right: 4vw
+      top: -5vh
+  &.f5
+    left: 15vw
+    top: 5vh
+    +rwdmax(1500)
+      top: -5vh
+      left: 10vw
+  &.f6
+    width: 5vw
+    right: 12vw
+    bottom: 20vh
+    +rwdmax(991)
+      bottom: 5vh
+      right: 5vw
+
+#entry-cover
+  width: 100%
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 1
+  user-select: none
+  overflow: hidden
+  z-index: 50
+  &.leave
+    pointer-events: none
+    .container
+      opacity: 0
+  .container
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: 15vh 5vw 30vh
+    background-color: #000
+    transition: opacity 0.7s
+  p
+    font-size: 4vw
+    font-weight: 600
+    color: #fff
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    span
+      display: block
+      opacity: 0
+      clip-path: inset(0 100% 0 0)
+      transition: 1.2s
+    &.active
+      span
+        opacity: 1
+        clip-path: inset(0 0 0 0)
+    &.leave
+      span
+        opacity: 0
+        transform: translateY(-20%)
+        transition: .4s
+  +rwdmax(767)
+    p
+      font-size: 6vw
 
 #cover
   width: 100%
-  height: 100%
   opacity: 0
   position: fixed
   left: 0
+  right: 0
   top: 0
+  bottom: 0
   z-index: 1
   pointer-events: none
   user-select: none
@@ -163,9 +222,6 @@ body
       background-size: 26px 26px
       background-image: repeating-linear-gradient(to right, #0e0e05, #0e0e05 1.3px, #ffffff 1.3px, #ffffff)
 
-.page-all
-  padding-bottom: 20vh
-
 section
   width: calc(100% - 150px)
   margin-right: auto
@@ -193,10 +249,10 @@ section
     .left
       opacity: 1
       clip-path: inset(0 0 0 0)
-      transition: opacity 1s .4s, clip-path .7s .4s
+      transition: opacity 1.2s .4s, clip-path 1s .4s
     .right
       opacity: 1
-      transition: opacity 1s .2s
+      transition: opacity 2s .2s
   +rwdmax(1500)
     &.banner
       padding: 0 60px 0 0
@@ -334,11 +390,8 @@ section
       &:nth-child(2)
         opacity: 0
   ul
-    li
-      overflow: hidden
     a
       opacity: 0
-      transform: translateY(150%) skewY(5deg)
   .tool .fake-line
     opacity: 0
     clip-path: inset(100% 0 0 0)
@@ -355,9 +408,20 @@ section
     ul
       a
         opacity: 1
-        transform: translateY(0)
-        transition: transform 2s
+        transition: opacity 1.5s
     .tool .fake-line
       opacity: 1
       clip-path: inset(0 0 0 0)
       transition: clip-path 1.5s, opacity 1.2s
+
+#footer
+  width: 100%
+  padding: 15px 10px
+  margin-top: 15vh
+  font-size: px(12)
+  font-weight: 500
+  line-height: 1.4
+  letter-spacing: 1.5px
+  text-align: center
+  position: relative
+  z-index: 5

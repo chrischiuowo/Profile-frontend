@@ -10,9 +10,10 @@
             <div class="cover-content">
               <div class="mask" />
               <video
-                src="@/assets/image/video.mp4"
+                src="https://i.imgur.com/8Goog0p.mp4"
                 type="video/mp4"
                 autoplay
+                playsinline
                 muted
                 loop
               />
@@ -22,7 +23,7 @@
         <div class="banner-text">
           <p class="slogan-1">
             <span>
-              Welcome Chris's Website
+              Hi I'm Chris
             </span>
           </p>
           <p class="slogan-2">

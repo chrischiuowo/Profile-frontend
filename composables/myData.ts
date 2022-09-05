@@ -45,44 +45,51 @@ export const myData = {
     {
       _id: 0,
       title: 'SpaceRoom 社交圈',
-      image: 'https://imgur.com/znAwpRS.png',
+      image: 'https://i.imgur.com/XBupQlt.png',
       tags: ['Vue3', 'Pinia', 'VueRouter', 'Node.js', 'Express.js'],
       link: 'https://spaceroom-3030.herokuapp.com'
     },
     {
       _id: 1,
       title: 'Shero 彩妝',
-      image: 'https://imgur.com/LMGVJps.png',
+      image: 'https://i.imgur.com/FeE5KbT.png',
       tags: ['JavaScript', 'jQuery'],
       link: 'https://www.sherocosmetics.com/en'
     },
     {
       _id: 2,
       title: '舞光 LED',
-      image: 'https://imgur.com/KQ3o6Jz.png',
+      image: 'https://i.imgur.com/tuFhxIB.png',
       tags: ['Vue3', 'JavaScript', 'jQuery', 'Webpack'],
       link: 'https://www.dancelight.com.tw/tw'
     },
     {
       _id: 3,
       title: '王品牛排',
-      image: 'https://imgur.com/I9Uitpk.png',
+      image: 'https://i.imgur.com/T2zjGho.png',
       tags: ['JavaScript', 'jQuery'],
       link: 'https://www.wangsteak.com.tw/'
     },
     {
       _id: 4,
       title: '莆田PUTIEN',
-      image: 'https://imgur.com/yVxVapl.png',
+      image: 'https://i.imgur.com/ec01cTt.png',
       tags: ['JavaScript', 'jQuery'],
       link: 'https://www.putien.com.tw/'
     },
     {
       _id: 5,
       title: '永鑫能源',
-      image: 'https://imgur.com/l4LKlpB.png',
-      tags: ['javascript', 'jQuery', 'vite'],
-      link: 'http://www.new-greenpower.com/tw'
+      image: 'https://i.imgur.com/pAraZKG.png',
+      tags: ['Javascript', 'jQuery', 'Vite'],
+      link: 'http://www.new-greenpower.com/en'
+    },
+    {
+      _id: 6,
+      title: '中外製藥',
+      image: 'https://i.imgur.com/OiJecly.png',
+      tags: ['Javascript', 'jQuery'],
+      link: 'https://www.chugai.com.tw/en'
     }
   ]
 }

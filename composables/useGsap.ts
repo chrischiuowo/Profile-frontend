@@ -158,7 +158,7 @@ export const useProjectCardGsap = (dom: HTMLElement) => {
         const outerW = imageOuter.offsetHeight
         const imageW = image.offsetHeight
         const diff = imageW - outerW
-        image.style.setProperty('transform', `translate3D(0, ${diff * self.progress * 1.5}px, 0)`)
+        image.style.setProperty('transform', `translate3D(0, ${diff * self.progress * 2}px, 0)`)
       }
     }
   })

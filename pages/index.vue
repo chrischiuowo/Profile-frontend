@@ -8,6 +8,7 @@
       <div class="noice-cover" />
     </div>
     <main>
+      <Entry />
       <Banner />
       <About />
       <Project />
@@ -19,13 +20,13 @@
 <script setup lang="ts">
 // setting head
 useHead({
-  title: 'Chris\'s Website',
+  title: 'Chris\'s Profile Website',
   viewport: 'width=device-width, initial-scale=1',
   charset: 'utf-8',
   meta: [
     {
       name: 'description',
-      content: 'I\'m Chris. 目前使用 Vue / Nuxt / Node / Express 做開發。 Chris\'s Website。'
+      content: 'I\'m Chris. 目前使用 Vue / Nuxt / Node / Express 做開發。 Chris\'s Profile Website'
     },
     {
       name: 'keywords',
