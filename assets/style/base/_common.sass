@@ -22,8 +22,11 @@ body
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3)
   &.cover-show
     #cover
-      opacity: 1
-      transition: opacity 1.5s
+      .color-cover
+        opacity: 1
+      .noice-cover
+        opacity: 1
+        transition: opacity 1s 0.8s
   &.about-mode
     #cover .color-cover
       background-color: var(--about-bg)
@@ -62,6 +65,7 @@ main
       transform: rotate(360deg)
   img
     width: 100%
+    filter: drop-shadow(2px 2px 5px rgba(#333, .5))
   &.aos-animate
     opacity: 1
     transform: translate(0)
@@ -85,6 +89,8 @@ main
     left: 15vw
     top: 80vh
     animation: spin 12s infinite
+    img
+      filter: drop-shadow(2px 2px 5px rgba(#d7d7d7, .5))
     +rwdmax(1500)
       left: 8vw
       top: 60vh
@@ -95,6 +101,8 @@ main
     left: 10vw
     top: 60vh
     animation: spin 10s infinite
+    img
+      filter: drop-shadow(2px 2px 5px rgba(#d7d7d7, .5))
     +rwdmax(1500)
       left: 4vw
       top: 40vh
@@ -169,7 +177,6 @@ main
 
 #cover
   width: 100%
-  opacity: 0
   position: fixed
   left: 0
   right: 0
@@ -179,9 +186,8 @@ main
   pointer-events: none
   user-select: none
   overflow: hidden
-  transition: opacity 2s
-  --about-bg: #b1c6c9
-  --project-bg: #3f3d4d
+  --about-bg: #d2d2d0
+  --project-bg: #2b2a32
   --contact-bg: #e2d1b5
   .color-cover, .noice-cover
     height: 100%
@@ -194,8 +200,9 @@ main
     left: 0
     top: 0
   .color-cover
+    opacity: 0
     z-index: 0
-    transition: background-color 2s
+    transition: 2s
     &::before
       content: ''
       width: 100%
@@ -204,7 +211,9 @@ main
       left: 0
       top: 0
   .noice-cover
+    opacity: 0
     z-index: 1
+    transition: opacity 0.5s
     @keyframes move
       0%
         transform: translate(20px, 0)
@@ -220,7 +229,7 @@ main
       background-color: #ffffff
       opacity: 0.1
       background-size: 26px 26px
-      background-image: repeating-linear-gradient(to right, #0e0e05, #0e0e05 1.3px, #ffffff 1.3px, #ffffff)
+      background-image: repeating-linear-gradient(to right, #0e0e05, #0e0e05 1.5px, #fff 1.5px, #fff)
 
 section
   width: calc(100% - 150px)
@@ -281,6 +290,9 @@ section
     .right
       padding-left: 0
       margin-top: 80px
+
+.page-all
+  overflow: hidden
 
 #header
   width: 150px
