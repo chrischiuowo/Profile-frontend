@@ -2,43 +2,43 @@ export const myData = {
   skill: [
     {
       _id: 0,
-      title: 'HTML',
-      score: 90
+      title: 'JavaScript',
+      desc: '熟悉 ES6+ 語法, jQuery 語法'
     },
     {
       _id: 1,
-      title: 'CSS',
-      score: 90
+      title: 'TypeScript',
+      desc: '搭配 TS 輔助程式開發'
     },
     {
       _id: 2,
-      title: 'JavaScript',
-      score: 90
+      title: 'Vue.js',
+      desc: '了解 Vue2, Vue3 語法，使用過 Vue Router, Pinia, Vuex'
     },
     {
       _id: 3,
-      title: 'TypeScript',
-      score: 80
+      title: 'Nuxt.js',
+      desc: '了解 Nuxt 架構，實現 SSR 需求'
     },
     {
       _id: 4,
-      title: 'Vue.js',
-      score: 90
+      title: 'Node.js & Express.js',
+      desc: '了解背後架構原理，開發 RESTful API ，處理前端需求'
     },
     {
       _id: 5,
-      title: 'Nuxt.js',
-      score: 80
+      title: 'MongoDB & Mongoose',
+      desc: '熟悉語法操控資料庫'
     },
     {
       _id: 6,
-      title: 'Node.js',
-      score: 80
+      title: 'HTML & CSS',
+      desc: '了解 HTML5, CSS3 特性，熟悉 RWD 排版設計，搭配 Pug, Sass, Scss 加速開發進度'
     },
     {
       _id: 7,
-      title: 'Express.js',
-      score: 80
+      title: 'Other',
+      desc: 'Vite Webpack 打包專案, Git 版本控制, Heroku 部署'
     }
   ],
   project: [

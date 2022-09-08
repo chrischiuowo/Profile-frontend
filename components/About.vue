@@ -10,26 +10,24 @@
       </div>
       <div class="right">
         <div class="info">
-          <div>
-            <p class="en">
+          <div class="en">
+            <p>
               I'm Chris
             </p>
           </div>
-          <div>
-            <p class="ch">
+          <div class="ch">
+            <p>
               邱葦宸
             </p>
           </div>
-          <div>
-            <p class="line" />
-          </div>
-          <div>
-            <p class="slogan">
+          <div class="line" />
+          <div class="slogan">
+            <p>
               No pain, no gain
             </p>
           </div>
-          <div>
-            <p class="content">
+          <div class="content">
+            <p>
               持續學習新的技術，
               持續學習新的知識，<br>
               保持對程式的熱誠，
@@ -38,12 +36,18 @@
             </p>
           </div>
         </div>
-        <div class="skill">
-          <AboutCircle
-            v-for="item in data"
-            :key="item._id"
-            :skill="item"
-          />
+        <div class="info">
+          <div class="job">
+            <ul>
+              <li
+                v-for="item in data"
+                :key="item._id"
+              >
+                <p><i>－</i> {{ item.title }}</p>
+                <span>{{ item.desc }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -74,7 +78,7 @@
 type Idata = {
   _id: number,
   title: string,
-  score: number
+  desc: string,
 }
 
 const data = ref<Array<Idata>>(myData.skill)

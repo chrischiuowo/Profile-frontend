@@ -16,7 +16,7 @@
           @click="scrollTo('section.about')"
         >
           <span>About</span>
-          <i class="fa-solid fa-user" />
+          <i class="fa-sharp fa-solid fa-address-book" />
         </a>
       </li>
       <li>
@@ -25,7 +25,7 @@
           @click="scrollTo('section.project')"
         >
           <span>Project</span>
-          <i class="fa-solid fa-book" />
+          <i class="fa-solid fa-folder" />
         </a>
       </li>
       <li>
@@ -34,7 +34,7 @@
           @click="scrollTo('section.contact')"
         >
           <span>Contact</span>
-          <i class="fa-solid fa-square-phone" />
+          <i class="fa-solid fa-paper-plane" />
         </a>
       </li>
     </ul>

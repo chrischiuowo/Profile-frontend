@@ -116,33 +116,6 @@ export const usePageGsap = () => {
   banner()
 }
 
-export const useAboutCircleGsap = (dom: HTMLElement) => {
-  const target: HTMLElement = dom
-  const counter: HTMLElement = target.querySelector('span')
-  const count: { val: number } = { val: 0 }
-
-  const timeLine = gsap.timeline({
-    defaults: {
-      duration: 2,
-      delay: 1
-    },
-    scrollTrigger: {
-      trigger: 'section.about',
-      onLeaveBack: self => self.disable()
-    }
-  })
-
-  timeLine.to(count, {
-    val: target.dataset.value,
-    roundProps: 'val',
-    onUpdate: function () {
-      const newVal = count.val + '%'
-      target.style.setProperty('--value', newVal)
-      counter.textContent = newVal
-    }
-  }, 0)
-}
-
 export const useProjectCardGsap = (dom: HTMLElement) => {
   const target: HTMLElement = dom
   const imageOuter: HTMLElement = target.querySelector('.image-outer')
@@ -158,7 +131,7 @@ export const useProjectCardGsap = (dom: HTMLElement) => {
         const outerW = imageOuter.offsetHeight
         const imageW = image.offsetHeight
         const diff = imageW - outerW
-        image.style.setProperty('transform', `translate3D(0, ${diff * self.progress * 2}px, 0)`)
+        image.style.setProperty('transform', `translate3D(0, ${diff * self.progress * 1.5}px, 0)`)
       }
     }
   })
